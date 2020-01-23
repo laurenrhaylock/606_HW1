@@ -15,7 +15,13 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+	return false if arr.empty? || arr.nil?
+
+	x = arr.combination(2).select {|x, y| x + y == n}
+
+	return false if x.nil? || x.empty?
+
+	return true
 end
 
 # Part 2
