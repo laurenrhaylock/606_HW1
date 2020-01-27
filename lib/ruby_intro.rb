@@ -37,7 +37,14 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  return false if s !~ /^[0-1]*$/
+
+  if (s =~ /100$/ || (s.length == 1 && s[0].to_i == 0))
+	 return true
+  else 
+	 return false
+  end 
+	
 end
 
 # Part 3
