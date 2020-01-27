@@ -53,7 +53,16 @@ class BookInStock
        attr_accessor :isbn, :price
 
        def initialize(isbn, price)
-	@isbn = isbn
- 	@price = price
+	       if isbn.empty?
+		       raise ArgumentError, 'ISBN is empty'
+	       else 
+	               @isbn = isbn
+	       end
+
+	       if price.to_i <= 0
+		       raise ArgumentError, 'Invalid price'
+	       else 
+	               @price = price
+	       end
 	end	
 end
