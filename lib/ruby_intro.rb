@@ -64,5 +64,21 @@ class BookInStock
 	       else 
 	               @price = price
 	       end
+	end
+
+	def price_as_string
+		price = ""
+		if @price.to_s =~ /^[0-9]*\.[0-9][0-9]$/
+			#price just need $
+			price = "$" + @price.to_s
+		elsif @price.to_s =~ /^[0-9]*\.[0-9]$/
+			#price ends in dot and one decimal, add 0 to end
+			price = "$" + @price.to_s + "0"
+		else
+			#price has no decimals, needs .00
+			price = "$" + @price.to_s + ".00"
+		end
+
+		return price
 	end	
 end
